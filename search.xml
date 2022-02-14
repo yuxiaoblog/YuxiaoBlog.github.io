@@ -4,110 +4,21 @@
   
     
     <entry>
-      <title>Linux分区</title>
-      <link href="/posts/293749eb.html"/>
-      <url>/posts/293749eb.html</url>
+      <title>回忆梦</title>
+      <link href="/posts/1.html"/>
+      <url>/posts/1.html</url>
       
-        <content type="html"><![CDATA[<h1 id="Linux系统如何分区？"><a href="#Linux系统如何分区？" class="headerlink" title="Linux系统如何分区？"></a>Linux系统如何分区？</h1><table><thead><tr><th>文件系统</th><th>挂载点</th><th>标记</th><th>大小</th></tr></thead><tbody><tr><td>Fat32</td><td>&#x2F;boot&#x2F;efi</td><td>Boot</td><td>512mb</td></tr><tr><td>Ext4</td><td>&#x2F;</td><td>Root</td><td>30720mb&#x3D;30G</td></tr><tr><td>Linuxswap</td><td>&#x2F;swap</td><td>Swap</td><td>8192mb&#x3D;8G</td></tr><tr><td>Ext4</td><td>&#x2F;home</td><td></td><td>114176(剩下的全部)</td></tr></tbody></table><p>解释：</p><p>efi是启动方式</p><p>&#x2F;是根目录，相当于Windows的c盘</p><p>linuxswap是交换分区，一般和内存大小就行了</p><p>home分区是存放文件和软件的分区，一般剩下的储存全给home就可以了</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 知识分享 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Mysql下载和安装</title>
-      <link href="/posts/fb0e1638.html"/>
-      <url>/posts/fb0e1638.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="Mysql下载安装"><a href="#Mysql下载安装" class="headerlink" title="Mysql下载安装"></a>Mysql下载安装</h1><h2 id="第一步：下载"><a href="#第一步：下载" class="headerlink" title="第一步：下载"></a>第一步：下载</h2><p><a href="https://www.mysql.com/downloads/">MySQL :: MySQL Downloads官方网址</a></p><p><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/xz1.jpeg"></p><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/xz2.jpeg"></p><!-- more --><p><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/xz3.jpeg"></p><p><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/xz4.jpeg"></p><h2 id="第二步：安装"><a href="#第二步：安装" class="headerlink" title="第二步：安装"></a>第二步：安装</h2><p><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/az1.png"></p><p><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/az2.png">    <img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/az3.png"></p><p><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/az5.png"></p><p><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/az4.png">11.win+x打开Windows终端（管理员)，并输入以下指令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --initialize-insecure //初始化mysql，并生成root账户且不生成密码</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --install//安装</span><br></pre></td></tr></table></figure><p>回车，如果出现以下提示代表安装成功<br><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/20200207193100951.jpg"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql //启动mysql的服务 net stop mysql停止mysql服务</span><br></pre></td></tr></table></figure><p>回车，如果出现以下提示代表开启成功</p><p><img src="https://cdn.jsdelivr.net/gh/xubios/URL-image-file@main/images/2022/01/03/mysql/20200207194037108.jpg"></p><p>12.输入以下指令登入mysql</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p //如果需要输入密码回车即可</span><br></pre></td></tr></table></figure><p>13.依次输入以下指令来设置用户</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update user set user=&quot;自定义用户名&quot; where user=&quot;root&quot;;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user &#x27;上一步的用户名&#x27;@&#x27;localhost&#x27; identified with mysql_native_password by &#x27;密码&#x27;;</span><br></pre></td></tr></table></figure><p>14.退出mysql</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\q</span><br></pre></td></tr></table></figure><p>至此安装成功,谢谢观看</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="回忆梦"><a href="#回忆梦" class="headerlink" title="回忆梦"></a>回忆梦</h1><p>​        时光荏苒，岁月蹉跎，转眼多年已去。不知道当年那些的初中同学们现在都怎么样了，不晓得他们有没有忘了我，或许我已经忘了他们每个人的名字了。</p><p>那是一个风和日丽的星期天下午，我的初中老班——林老师，把我们全班约到了原本的教室——致远楼二楼22班，一起聚一下，毕竟多年没见。</p><p>一点左右，同学们都陆续到达。我刚进入教室门的那一刻，一位穿着黄色上衣，带着黑色墨镜的同学拦住了我，我说：“请问我认识你吗？”，那个人说：“你不认识我，但我缺认识你啊”，我满脑子的疑问，但低头系鞋带的一会功夫，那位穿着黄色上衣的同学却已消失不见，或许他去上厕所了。</p><p>进入教室后我找到了当年的座位 ，期间遇到了一些我不认识的同学，脸看着很面生，莫非那是老班现在的学生？我心里想到。<br>我选好了座位并坐了下来，看到老班叫走了几个同学搬来了几箱零食，又拿了一些新的校服放在讲台上，说是给我们一些校服没有的同学，留作纪念，当然我也拿了一件。</p><p>我们全班都坐好了，就等老师发表演讲。老师说：“同学们，大家那么长时间没有见面……”</p><p>那一下午老师说了很多，似乎把她对我们想说的心里话全说出来了。那一下午过的很漫长但又很短暂，在座的无一不是泪湿眼眶。老师说完后，便让我们打扫教室。我去拿扫把的时候，遇见了一位同学，他在初中时被其它同学戏称为“老鳖”，或许他的头发很像“老鳖”吧，当然，这样称呼别人不好，但想当年他欺负我的行为时却发现这个称呼很合理。在初中时他的身高和我差不多，或许比我高点，但是现在比我矮了半头……</p><p>收拾完教室后，不知道怎么回事——全班人都在教室睡觉，而我有早起的习惯，所以很早起来，看窗外应该是六七点了。但是我们为什么在这里睡觉，刚才还在这里打扫卫生呢？我仔细想了想，噢，原来这是场梦，我连忙拿起手机想记录下此时此刻留念，毕竟全班同学都在教室里。但我拿手机怎么拍都拍不了这个画面，当我最后一次按下快门键的时候——闹铃响了——原来，刚才又是一场梦。我醒了，被窝里很热，刷牙回来把我刚才梦到的所有事情都用手机记录下来，也就是你们现在看到的这篇文章，但我无法确定现在这个真实的生活是否也是个梦境~~</p>]]></content>
       
       
       
         <tags>
             
-            <tag> 软件安装 </tag>
+            <tag> 梦境 </tag>
+            
+            <tag> 回忆 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Archlinux无法连接wifi</title>
-      <link href="/posts/5f6cee1a.html"/>
-      <url>/posts/5f6cee1a.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h2><p>1.archlinux安装过程中如何联网？？？</p><p>2.archlinux安装完成后进入图形化界面无法使用wifi只能使用网线</p><p>（manjaro Linux 可能适用）</p><p>下文是解决方法：</p><span id="more"></span><h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><h3 id="archlinux安装过程中联网"><a href="#archlinux安装过程中联网" class="headerlink" title="archlinux安装过程中联网"></a>archlinux安装过程中联网</h3><p>指令依次往下执行，除注释外</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$dhcpcd#接入网线</span><br><span class="line">$iwctl#进入iwd模式</span><br><span class="line">$device list#列出网卡信息</span><br><span class="line">$station wlan0 scan</span><br><span class="line">$station wlan0 get-networks    #扫描并列出有用的网络</span><br><span class="line">$station wlan0 connect 网络名称  #连接网络</span><br><span class="line">$exit#退出模式</span><br></pre></td></tr></table></figure><h3 id="archlinux进入图形化界面后联网（wifi）"><a href="#archlinux进入图形化界面后联网（wifi）" class="headerlink" title="archlinux进入图形化界面后联网（wifi）"></a>archlinux进入图形化界面后联网（wifi）</h3><p>配置网络(指令依次往下执行，除注释外)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">有线连接：</span><br><span class="line">$systemctl start dhcpcd#开启服务</span><br><span class="line">$systemctl enable dhcpcd#开机自启动</span><br><span class="line">#$systemctl stop dhcpcd 关闭服务</span><br><span class="line">无线连接：</span><br><span class="line">$systemctl start iwd#开启服务</span><br><span class="line">$systemctl enable iwd#开机自启动</span><br><span class="line">#$systemctl start iwd   关闭服务</span><br><span class="line">Linux使用图像化的网络管理器</span><br><span class="line">$pacman -S networkmanger#安装软件包</span><br><span class="line">$systemctl start NetworkManager.service #开启服务</span><br><span class="line">$systemctl enable NetworkManager.service    #开机自启动</span><br><span class="line">$pacman -S nm-connection-editor #安装图形化设置工具</span><br><span class="line">$pacman -S network-manager-applet</span><br><span class="line">$pacman -S xfce4-notifyd       #安装显示通知工具</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 常见问题 </tag>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>u盘格式化方法</title>
-      <link href="/posts/cee68c35.html"/>
-      <url>/posts/cee68c35.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="优盘格式化（适用于系统u盘）"><a href="#优盘格式化（适用于系统u盘）" class="headerlink" title="优盘格式化（适用于系统u盘）"></a>优盘格式化（适用于系统u盘）</h1><h2 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h2><p>u盘做成系统优盘，使用完毕后，想把它格式化重新存储文件，但是有时8G的u盘格式化后会变为4G或者其他与原本内存不符合的G数，或者直接变成两个盘符。后文是解决方式。</p><span id="more"></span><h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><p>步骤简单暂无步骤图</p><p>环境：windows10</p><p>机型：笔记本</p><p>1.将u盘插入电脑<br>2.win+r键，输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmd#打开cmd</span><br><span class="line">$diskpart#调出diskpart工具</span><br></pre></td></tr></table></figure><p>或者直接win+r键输入</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">diskpart</span><br></pre></td></tr></table></figure><p>3.输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$list disk</span><br></pre></td></tr></table></figure><p>显示磁盘信息（一般来说看大小就会知道哪些是u盘，哪些是硬盘）</p><p>4.假设显示的是磁盘1为u盘，输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$select disk 1</span><br><span class="line">$clean</span><br><span class="line">$create partition primary</span><br><span class="line">format fs fat32</span><br></pre></td></tr></table></figure><p>输入到最后一个命令等百分比变为100即可，后续需要什么格式可以在资源管理器里，右键u盘格式化即可</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 常见问题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>笔记本安装Linux提示”镜像尚未被验证“</title>
-      <link href="/posts/97ba96c6.html"/>
-      <url>/posts/97ba96c6.html</url>
-      
-        <content type="html"><![CDATA[<h1 id="惠普笔记本安装Linux前期问题"><a href="#惠普笔记本安装Linux前期问题" class="headerlink" title="惠普笔记本安装Linux前期问题"></a>惠普笔记本安装Linux前期问题</h1><h2 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h2><p>当惠普笔记本安装manjaro或其他系统时，如果进入u盘启动屏幕弹出“选择的启动镜像是尚未被验证过的，请按enter键，继续“的页面，下文是解决方式。</p><span id="more"></span><h2 id="解决："><a href="#解决：" class="headerlink" title="解决："></a>解决：</h2><p>环境：window10</p><p>机型：hp星14</p><p>bios：UEFI</p><p>1.开机快速按F10（惠普）进入BIOS设置将安全启动改为传统启动</p><p>2.重启</p><p>3.开机快速按F9（惠普）进入u盘启动，成功！</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 常见问题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/posts/16107.html"/>
-      <url>/posts/16107.html</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     
